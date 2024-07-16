@@ -49,7 +49,7 @@ public class UserDto {
    
     public static User  dtoToUserModel(UserDto userDto){
         User newModel =  new User();
-        userDto.setName(newModel.getName());
+        newModel.setName(userDto.getName());
         userDto.setIdUser(newModel.getId());
         newModel.setEmail(userDto.getEmail());
         newModel.setCreatedAt(userDto.getCreatedAt());
