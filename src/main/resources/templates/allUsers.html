@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos los usuarios</title>
+</head>
+<body>
+    <div class="cards">
+        <div class="user-card" th:each="user : ${users}">
+            <div
+                th:attr="nombre=${user.name},
+                         email=${user.email},
+                         creado en =${user.createdAt}
+                         ">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

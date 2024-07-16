@@ -2,9 +2,9 @@ package com.jsspring.jsandspring.domain.model;
 
 public class User {
 
-    private static  Long countUser;
+    private static  long countUser = 0;
 
-    private Long id;
+    private long id;
 
     private String name;
 
@@ -13,11 +13,10 @@ public class User {
     private String createdAt;
 
     public User() {
-        
+        this.id = User.countUser++;
     }
 
     public User( String name, String email, String createdAt) {
-        this.id = User.countUser += 1;
         this.name = name;
         this.email = email;
         this.createdAt = createdAt;
@@ -25,11 +24,11 @@ public class User {
 
 
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

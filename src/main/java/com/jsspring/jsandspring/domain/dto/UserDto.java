@@ -1,7 +1,10 @@
 package com.jsspring.jsandspring.domain.dto;
 
+
+import com.jsspring.jsandspring.domain.model.User;
+
 public class UserDto {
-    private Long idUser;
+    private long idUser;
 
     private String name;
 
@@ -9,19 +12,13 @@ public class UserDto {
 
     private String createdAt;
 
-    private String nameDegree;
-
-    private String University;
-
-    private String obtainedAt;
-
     public UserDto() {}
 
-    public Long getIdUser() {
+    public long getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(Long idUser) {
+    public void setIdUser(long idUser) {
         this.idUser = idUser;
     }
 
@@ -49,30 +46,15 @@ public class UserDto {
         this.createdAt = createdAt;
     }
 
-    public String getNameDegree() {
-        return nameDegree;
+   
+    public static User  dtoToUserModel(UserDto userDto){
+        User newModel =  new User();
+        userDto.setName(newModel.getName());
+        userDto.setIdUser(newModel.getId());
+        newModel.setEmail(userDto.getEmail());
+        newModel.setCreatedAt(userDto.getCreatedAt());
+       
+        return newModel;
     }
-
-    public void setNameDegree(String nameDegree) {
-        this.nameDegree = nameDegree;
-    }
-
-    public String getUniversity() {
-        return University;
-    }
-
-    public void setUniversity(String university) {
-        University = university;
-    }
-
-    public String getObtainedAt() {
-        return obtainedAt;
-    }
-
-    public void setObtainedAt(String obtainedAt) {
-        this.obtainedAt = obtainedAt;
-    }
-
-
     
 }

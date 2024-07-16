@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Registro de Usuario</h2>
+    <form id="userForm">
+        <label for="name">Nombre:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Correo electrónico:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="createdAt">Fecha de creación:</label><br>
+        <input type="text" id="createdAt" name="createdAt" value="<?php echo date('Y-m-d H:i:s'); ?>" readonly><br><br>
+        
+        <input type="submit" value="Registrar">
+    </form>
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar que el formulario se envíe de forma convencional
+
+            // Obtener los valores de los campos del formulario
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var createdAt = document.getElementById('createdAt').value;
+
+            // Crear objeto con los datos del formulario
+            var formData = {
+                name: name,
+                email: email,
+                createdAt: createdAt
+            };
+
+            // Realizar la petición POST usando fetch
+            fetch('http://localhost:8080/jspsring/add-user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Respuesta del servidor:', data);
+                // Aquí puedes manejar la respuesta del servidor si es necesario
+            })
+            .catch(error => {
+                console.error('Error en la petición:', error);
+                // Aquí puedes manejar los errores de la petición
+            });
+        });
+    </script>
+</body>
+</html>
