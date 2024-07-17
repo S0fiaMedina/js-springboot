@@ -28,7 +28,7 @@ export class userComponent extends HTMLElement{
 
         this.shadowRoot.getElementById('nombre').textContent = `Nombre: ${nombre}`;
         this.shadowRoot.getElementById('email').textContent = `Email: ${email}`;
-        this.shadowRoot.getElementById('creacion').textContent = `Creado en: ${creacion}`;
+        this.shadowRoot.getElementById('creacion').textContent = `fecha de nacimiento: ${creacion}`;
     }
 
 }

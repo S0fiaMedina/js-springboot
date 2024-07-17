@@ -21,7 +21,7 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
         body: JSON.stringify(userData),
     })
     .then(response => {
-        console.log(response.json);
+       
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -29,7 +29,7 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
     })
     .then(data => {
         console.log('Success:', data);
-        // Aquí puedes manejar la respuesta del servidor
+        window.alert('Usuario creado Satisfactoriamente.')
     })
     .catch(error => {
         console.error('Error:', error);
