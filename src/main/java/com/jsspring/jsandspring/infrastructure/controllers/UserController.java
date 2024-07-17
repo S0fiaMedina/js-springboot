@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jsspring.jsandspring.application.UserService;
 import com.jsspring.jsandspring.domain.dto.UserDto;
@@ -42,8 +43,9 @@ public class UserController {
     }
 
     @PostMapping("/add-user")
-    public String createUser(@RequestBody UserDto userDto){
+    @ResponseBody
+    public UserDto createUser(@RequestBody UserDto userDto){
         this.userService.createNewUser(userDto);
-        return "redirect:/jspsring/index"; // Adjusted redirect
+        return userDto; // Adjusted redirect
     }
 }

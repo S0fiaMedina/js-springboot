@@ -21,7 +21,7 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
         body: JSON.stringify(userData),
     })
     .then(response => {
-        console.log(response);
+        console.log(response.json);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

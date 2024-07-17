@@ -1,3 +1,3 @@
-import userComponent from "./userComponent";
-import "./newUser";
+import  "./userComponent.js";
+import "./newUser.js";
 
